@@ -1,8 +1,13 @@
-import React from "react";
-import "./App.css";
+import { Provider } from "react-redux";
+import { Editor } from "./components/Editor";
+import store from "./redux/store";
 
 function App() {
-  return <div className="App">APP</div>;
+  return (
+    <Provider store={store}>
+      <Editor />
+    </Provider>
+  );
 }
 
 export default App;
