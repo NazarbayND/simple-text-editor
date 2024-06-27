@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
 import { EditorSliceState } from "./types";
 
 const defaultState = {
@@ -12,7 +13,6 @@ const initialState: EditorSliceState = {
   statesList: [defaultState],
   pointer: 0,
 };
-
 const editorSlice = createSlice({
   name: "editor",
   initialState,
@@ -59,13 +59,7 @@ const editorSlice = createSlice({
   },
 });
 
-export const {
-  undo,
-  redo,
-  setValue,
-
-  setIsBold,
-  setIsItalic,
-} = editorSlice.actions;
+export const { undo, redo, setValue, setIsBold, setIsItalic } =
+  editorSlice.actions;
 
 export default editorSlice.reducer;

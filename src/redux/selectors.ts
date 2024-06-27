@@ -1,10 +1,20 @@
+import { createSelector } from "@reduxjs/toolkit";
+
 import { RootState } from "./types";
 
-export const currentStateSelector = (state: RootState) =>
-  state.editor.currentState;
+export const editorSelector = (state: RootState) => state.editor;
 
-export const isUndoDisabledSelector = (state: RootState) =>
-  state.editor.pointer === 0;
+export const currentStateSelector = createSelector(
+  editorSelector,
+  (state) => state.currentState
+);
 
-export const isRedoDisabledSelector = (state: RootState) =>
-  state.editor.pointer === state.editor.statesList.length - 1;
+export const isUndoDisabledSelector = createSelector(
+  editorSelector,
+  (state) => state.pointer === 0
+);
+
+export const isRedoDisabledSelector = createSelector(
+  editorSelector,
+  (state) => state.pointer === state.statesList.length - 1
+);
